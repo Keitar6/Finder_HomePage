@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import { PaletteType } from '../../../theme/theme.types';
 
 export const HeaderWrapper = styled.div<{ palette: PaletteType }>`
@@ -55,6 +55,13 @@ export const Banner = styled.div`
 `;
 
 export const DownloadWrapper = styled.div`
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+`;
+export const NotificationContainer = styled.div`
   display: flex;
   position: relative;
   justify-content: center;

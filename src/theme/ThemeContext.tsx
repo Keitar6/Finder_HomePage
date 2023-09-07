@@ -1,6 +1,6 @@
 import { createContext, PropsWithChildren } from 'react';
-import { Theme } from './theme.types';
 import initialTheme from './initialTheme';
+import { Theme } from './theme.types';
 
 export const ThemeContext = createContext({} as Theme);
 

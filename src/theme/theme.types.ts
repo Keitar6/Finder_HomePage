@@ -13,8 +13,12 @@ export const colorNames = [
   'redDark',
   'footer',
   'white',
+
+  'notificationGreyHover',
+  'notificationGrey',
   'inputGrey',
   'iconInputGrey',
+
   'text',
   'textGrey',
   'yellow',

@@ -1,4 +1,4 @@
-import { FC, PropsWithChildren } from 'react';
+import { FC, HTMLAttributes, PropsWithChildren } from 'react';
 import styled from 'styled-components';
 
 export const Wrapper = styled.div`
@@ -8,6 +8,8 @@ export const Wrapper = styled.div`
   width: 100%;
 `;
 
-const CenterWrapper: FC<PropsWithChildren> = ({ children }) => <Wrapper>{children}</Wrapper>;
+const CenterWrapper: FC<PropsWithChildren<HTMLAttributes<HTMLDivElement>>> = ({ children }) => (
+  <Wrapper>{children}</Wrapper>
+);
 
 export default CenterWrapper;

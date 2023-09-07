@@ -7,16 +7,17 @@ import Icon from '../../atoms/Icon/Icon';
 import Button from '../../atoms/Button/Button';
 import SearchBar from '../../molecules/SearchBar/SearchBar';
 import QRDropdownItem from '../../molecules/QRDropdownItem/QRDropdownItem';
+import NotificationDropdown from '../../molecules/NotificationDropdown/NotificationDropdown';
 
 const Header = () => {
   const { palette } = useContext(ThemeContext);
-  const [isDropdownOpen, setIsDropdownOpen] = useState<boolean>(false);
+  const [isQRDropdownOpen, setIsQRDropdownOpen] = useState<boolean>(false);
 
-  const openDropdown = () => {
-    setIsDropdownOpen(true);
+  const openQRDropdown = () => {
+    setIsQRDropdownOpen(true);
   };
-  const closeDropdown = () => {
-    setIsDropdownOpen(false);
+  const closeQRDropdown = () => {
+    setIsQRDropdownOpen(false);
   };
 
   return (
@@ -27,16 +28,17 @@ const Header = () => {
           <Styled.Logo src={Finder} alt='Logo Finder' />
         </Styled.LogoAndHambuergerContainer>
         <Styled.SearchAndButtonsContainer>
-          <Styled.DownloadWrapper onMouseOver={openDropdown} onMouseOut={closeDropdown}>
+          <Styled.DownloadWrapper onMouseOver={openQRDropdown} onMouseOut={closeQRDropdown}>
             <Icon name='download' />
             <Typography color='blueDark' variant='boldParagraph'>
               App
             </Typography>
-            {isDropdownOpen ? <QRDropdownItem /> : null}
+            {isQRDropdownOpen ? <QRDropdownItem /> : null}
           </Styled.DownloadWrapper>
 
           <SearchBar placeholder='Search' />
-          <div>Placeholder Icon Bell </div>
+
+          <NotificationDropdown />
 
           <Styled.ButtonsWrapper>
             <Button variant='ghost' style={{ fontWeight: 600 }}>

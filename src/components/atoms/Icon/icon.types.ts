@@ -1,7 +1,7 @@
 import { IconifyIconName } from '@iconify/react';
 import { Getters } from '../../../types/shared.types';
 
-export const iconsNames = ['download', 'search', 'creditCard'] as const;
+export const iconsNames = ['download', 'search', 'creditCard', 'bell', 'remove', 'tag'] as const;
 
 export type IconName = (typeof iconsNames)[number];
 
