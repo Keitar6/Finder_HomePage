@@ -2,7 +2,7 @@ import { ButtonHTMLAttributes } from 'react';
 import { ColorNames, HexColor } from '../../../theme/theme.types';
 import { IconName } from '../Icon/icon.types';
 
-export const ButtonVariants = ['primary', 'ghost'] as const;
+export const ButtonVariants = ['primary', 'ghost', 'hoverReverse'] as const;
 export const buttonColors = ['blue', 'green', 'orange'] as const;
 
 type ButtonVariantsType = {
@@ -11,6 +11,7 @@ type ButtonVariantsType = {
 export const BUTTON_VARIANTS: ButtonVariantsType = {
   primary: 'primary',
   ghost: 'ghost',
+  hoverReverse: 'hoverReverse',
 } as const;
 
 export type ColorVariant = (typeof buttonColors)[number];
@@ -29,7 +30,9 @@ export type PrimaryButtonProps = BasicProps<typeof BUTTON_VARIANTS.primary> & Ic
 
 export type GhostButtonProps = BasicProps<typeof BUTTON_VARIANTS.ghost> & IconProps;
 
-export type ButtonProps = (PrimaryButtonProps | GhostButtonProps) &
+export type HoverReverseButtonProps = BasicProps<typeof BUTTON_VARIANTS.hoverReverse> & IconProps;
+
+export type ButtonProps = (PrimaryButtonProps | GhostButtonProps | HoverReverseButtonProps) &
   ButtonHTMLAttributes<HTMLButtonElement>;
 
 export type HoverProperties = {
@@ -69,8 +72,3 @@ export type ButtonsStyleType<T> = {
 };
 
 export const IsIconNullGuard = (icon: null | IconName): icon is null => icon === null;
-
-export type AddHoverProps = {
-  hoverColor: ColorNames;
-  styling: StylingProperty;
-};

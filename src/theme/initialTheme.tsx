@@ -72,7 +72,7 @@ const initialTheme: Theme = {
     },
     boldParagraph: {
       fontFamily: 'Roboto, Arial, sans-serif',
-      fontWeight: 500,
+      fontWeight: 600,
       fontSize: '1rem',
       lineHeight: '1rem',
       letterSpacing: '',
