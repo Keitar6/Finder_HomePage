@@ -2,7 +2,6 @@ import Icon from '../../atoms/Icon/Icon';
 import * as Styled from './CountriesDropdown.styled';
 import { FC, useState } from 'react';
 import { CountryIcon } from '../../atoms/Icon/icon.types';
-import Typography from '../../atoms/Typography/Typography';
 
 export const Countries: CountryIcon[] = ['Australia', 'United States', 'Canada', 'United Kingdom'];
 

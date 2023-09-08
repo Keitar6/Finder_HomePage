@@ -1,12 +1,13 @@
-import styled, { keyframes } from 'styled-components';
+import styled from 'styled-components';
 import { PaletteType } from '../../../theme/theme.types';
+import initialTheme from '../../../theme/initialTheme';
 
 export const HeaderWrapper = styled.div<{ palette: PaletteType }>`
-  background-color: ${({ palette }) => palette.light};
+  background-color: ${initialTheme.palette.light};
   background: linear-gradient(
     180deg,
-    ${({ palette }) => palette.light} 0%,
-    ${({ palette }) => palette.blueLight} 100%
+    ${initialTheme.palette.light} 0%,
+    ${initialTheme.palette.light} 100%
   );
   margin-bottom: 50px;
 `;
