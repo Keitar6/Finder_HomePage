@@ -33,6 +33,11 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 
 Opens storybook to view UI of the components
 
+QUICK NOTE:
+
+    Yes, i have wrongly understood the task and have done more than what was necessary. My fault, i hope that
+    you will enjoy my code either way. Have a lovely day!
+
 ## Learn More
 
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
