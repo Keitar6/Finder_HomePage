@@ -7,6 +7,7 @@ import Button from '../../atoms/Button/Button';
 import SearchBar from '../../molecules/SearchBar/SearchBar';
 import NotificationDropdown from '../../molecules/NotificationDropdown/NotificationDropdown';
 import DownloadDropdown from '../../molecules/DownloadDropdown/DownloadDropdown';
+import HamburgerMenu from '../../molecules/HamburgerMenu/HamburgerMenu';
 
 const Header = () => {
   const { palette } = useContext(ThemeContext);
@@ -15,11 +16,11 @@ const Header = () => {
     <Styled.HeaderWrapper palette={palette}>
       <Styled.HeaderNavBar>
         <Styled.LogoAndHambuergerContainer>
-          <div>Hamburger Icon</div>
+          <HamburgerMenu />
           <Styled.Logo src={Finder} alt='Logo Finder' />
         </Styled.LogoAndHambuergerContainer>
+
         <Styled.SearchAndButtonsContainer>
-          
           <DownloadDropdown />
 
           <SearchBar placeholder='Search' />

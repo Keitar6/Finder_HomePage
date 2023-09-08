@@ -19,6 +19,7 @@ const NotificationDropdown: FC = () => {
   const changeStateOfNotificationDropdown = () => {
     setIsDropdownOpen(!isDropdownOpen);
     setNotificationsHasBeenSeen(true);
+    console.log(notifications);
   };
 
   const notificationsLabel = (count: number) => {

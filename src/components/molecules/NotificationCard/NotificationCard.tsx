@@ -1,21 +1,26 @@
 import Typography from '../../atoms/Typography/Typography';
 import * as Styled from './NotificationCard.styled';
 import Icon from '../../atoms/Icon/Icon';
-import { useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { IconName } from '../../atoms/Icon/icon.types';
+import { GeneralContext } from '../../../contexts/GeneralContext';
 
 export type Notification = {
   title: string;
   description: string;
   iconName: IconName | null;
+  isDissmised: boolean;
 };
 export type NotificationProps = {
   data: Notification;
 };
 
-const NotificationCard = ({ data: { title, description, iconName } }: NotificationProps) => {
-  const [removeNotification, setRemoveNotification] = useState<boolean>(false);
+const NotificationCard = ({
+  data: { title, description, iconName, isDissmised },
+}: NotificationProps) => {
+  const [removeNotification, setRemoveNotification] = useState<boolean | null>(null);
   const [ifRemoveHovered, setIfRemoveHovered] = useState<boolean>(false);
+  const { notifications, setNotifications } = useContext(GeneralContext);
 
   const removeIconHover = () => {
     setIfRemoveHovered(true);
@@ -24,17 +29,23 @@ const NotificationCard = ({ data: { title, description, iconName } }: Notificati
     setIfRemoveHovered(false);
   };
 
-  const deleteNotification = () => {
-    setRemoveNotification(true);
+  const changeStateOfTheNotification = () => {
+    setRemoveNotification(!removeNotification);
   };
 
-  const undoDeleteNotification = () => {
-    setRemoveNotification(false);
-  };
+  useEffect(() => {
+    if (removeNotification !== null) {
+      setNotifications(
+        notifications.map((note) =>
+          note.title === title ? { ...note, isDissmised: removeNotification } : note,
+        ),
+      );
+    }
+  }, [removeNotification]);
 
   return (
     <Styled.NotificationCardContainer>
-      {!removeNotification ? (
+      {!isDissmised ? (
         <>
           <Styled.IconWrapper>
             {iconName !== null ? (
@@ -56,7 +67,7 @@ const NotificationCard = ({ data: { title, description, iconName } }: Notificati
           <Styled.RemoveButtonWrapper
             onMouseOver={removeIconHover}
             onMouseOut={removeIconNoHover}
-            onClick={deleteNotification}
+            onClick={changeStateOfTheNotification}
           >
             <Icon name={'remove'} size={0} color={ifRemoveHovered ? 'text' : 'inputGrey'} />
           </Styled.RemoveButtonWrapper>
@@ -64,12 +75,11 @@ const NotificationCard = ({ data: { title, description, iconName } }: Notificati
       ) : (
         <>
           <Styled.Dummy />
-
           <Styled.Texts>
             <Typography variant='smallParagraph' style={{ width: '100%' }}>
               This notification has been dismissed.
             </Typography>
-            <Styled.UndoButton onClick={undoDeleteNotification}>Undo</Styled.UndoButton>
+            <Styled.UndoButton onClick={changeStateOfTheNotification}>Undo</Styled.UndoButton>
           </Styled.Texts>
           <Styled.Dummy />
         </>

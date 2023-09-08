@@ -6,11 +6,13 @@ export const NotificationsMock: Notification[] = [
     title: 'Get 2 months of Disney Plus free',
     description: "Don't miss out! Get 3 months of streaming for the price of 1",
     iconName: null,
+    isDissmised: false,
   },
   {
     title: 'Exclusive Finder offers ',
     description: "View deals that you can't find anywhere else",
     iconName: 'tag',
+    isDissmised: false,
   },
 ];
 
