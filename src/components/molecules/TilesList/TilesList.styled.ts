@@ -25,6 +25,7 @@ export const PaginationButton = styled.button`
   width: 100%;
   flex-direction: row;
 
+  z-index: 10;
   background-color: transparent;
 
   gap: 4px;

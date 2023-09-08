@@ -16,6 +16,7 @@ const AppContent = styled.div`
   }
   @media (min-width: 961px) {
     margin: 0 auto;
+    max-width: 972px;
   }
 `;
 

@@ -9,17 +9,23 @@ import { useEffect, useState } from 'react';
 
 const TilesList = () => {
   const screenDim = useWindowDimensions();
-  let paginationLimiter = respoSwitcher(screenDim);
-  const [paginatedArray, setPaginatedArray] = useState<TileData[]>([]);
+  const [paginationLimiter, setPaginationLimiter] = useState<number>(respoSwitcher(screenDim));
+  const [paginatedArray, setPaginatedArray] = useState<TileData[]>(
+    TILES_ARRAY.slice(0, paginationLimiter),
+  );
 
   const showAllOfTheTiles = () => {
-    if (paginationLimiter !== TILES_ARRAY.length) paginationLimiter = TILES_ARRAY.length;
-    else paginationLimiter = respoSwitcher(screenDim);
+    if (paginationLimiter !== TILES_ARRAY.length) setPaginationLimiter(TILES_ARRAY.length);
+    else setPaginationLimiter(respoSwitcher(screenDim));
   };
 
   useEffect(() => {
     setPaginatedArray(TILES_ARRAY.slice(0, paginationLimiter));
   }, [paginationLimiter]);
+
+  useEffect(() => {
+    setPaginationLimiter(respoSwitcher(screenDim));
+  }, [screenDim]);
 
   return (
     <Styled.TilesContainer>
