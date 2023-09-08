@@ -12,20 +12,41 @@ export const DropdownBox = styled.div`
 
 export const Wrapper = styled.div`
   position: absolute;
+  display: flex;
   top: 3.4375rem;
-  right: -9px;
-  min-width: 14rem;
+  right: 0px;
+  width: 200px;
   box-shadow: 0 5px 10px 0 ${initialTheme.palette.iconInputGrey};
   border-radius: 10px;
+  flex-direction: column;
+
+  div:first-child {
+    border-radius: 8px 8px 0 0;
+  }
+  div:last-child {
+    border-radius: 0 0 8px 8px;
+  }
 `;
 
 export const BaseContainer = styled.div`
   display: flex;
   justify-content: baseline;
   align-items: center;
-  max-width: 200px;
+  justify-content: space-between;
+  width: 200px;
+  padding: 4px 8px;
+
+  border-radius: 8px;
+  border: 1px solid;
+  border-color: ${initialTheme.palette.inputGrey};
+
+  &:hover {
+    border-color: ${initialTheme.palette.text};
+    text-decoration: underline;
+    color: ${initialTheme.palette.blueDark};
+  }
 `;
-export const Row = styled.div`
+export const BaseRow = styled.div`
   display: flex;
   justify-content: baseline;
   align-items: center;
@@ -33,8 +54,18 @@ export const Row = styled.div`
 
   gap: 0.2rem;
 `;
+export const Row = styled(BaseRow)`
+  &:hover {
+    background-color: ${initialTheme.palette.notificationGrey};
+    border-color: ${initialTheme.palette.text};
+    text-decoration: underline;
+    color: ${initialTheme.palette.blueDark};
+  }
+
+  padding: 4px 8px;
+`;
 
 export const CountryItem = styled.div`
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
 `;

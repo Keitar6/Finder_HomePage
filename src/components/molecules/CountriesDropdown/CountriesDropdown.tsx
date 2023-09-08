@@ -15,20 +15,20 @@ const CountriesDropdown: FC = () => {
   return (
     <Styled.DropdownBox>
       <Styled.BaseContainer onClick={changeStateOfTheDropdown}>
-        <Styled.Row>
-          <Icon name={Countries[0]}  />
-          <Typography>{Countries[0]}</Typography>
-        </Styled.Row>
-        <Icon name='arrowDown' />
+        <Styled.BaseRow>
+          <Icon name={Countries[0]} />
+          {Countries[0]}
+        </Styled.BaseRow>
+        <Icon name='arrowDown' color='text' size={20} />
       </Styled.BaseContainer>
 
       {isDropdownOpen ? (
         <Styled.Wrapper>
           {Countries.map((country) => (
-            <div key={country}>
-              <Icon color='iconInputGrey' name={country} />
+            <Styled.Row key={country}>
+              <Icon color='iconInputGrey' size={24} name={country} />
               <Styled.CountryItem>{country}</Styled.CountryItem>
-            </div>
+            </Styled.Row>
           ))}
         </Styled.Wrapper>
       ) : null}
