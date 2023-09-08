@@ -17,7 +17,7 @@ const Header = () => {
       <Styled.HeaderNavBar>
         <Styled.LogoAndHambuergerContainer>
           <HamburgerMenu />
-          <Styled.Logo src={Finder} alt='Logo Finder' />
+          <Styled.Logo src={Finder} alt='Finders logo' />
         </Styled.LogoAndHambuergerContainer>
 
         <Styled.SearchAndButtonsContainer>

@@ -7,7 +7,7 @@ import * as Styled from './QRDropdownItem.styled';
 const QRDropdownItem = () => (
   <Styled.Wrapper>
     <Styled.QRDropdown>
-      <Styled.QRImage src={QRCode} />
+      <Styled.QRImage src={QRCode} alt='QR Code --> Download application' />
       <Styled.Texts>
         <Typography variant='smallParagraph' style={{ fontWeight: 'bold', textAlign: 'center' }}>
           Free Credit Score

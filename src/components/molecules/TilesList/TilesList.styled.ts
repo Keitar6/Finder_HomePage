@@ -17,3 +17,16 @@ export const TilesContainer = styled.div`
   gap: 1rem;
   padding: 0 20px;
 `;
+
+export const PaginationButton = styled.button`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  flex-direction: row;
+
+  background-color: transparent;
+
+  gap: 4px;
+  padding: 8px 15px 10px;
+`;

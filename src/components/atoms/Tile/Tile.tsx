@@ -4,19 +4,20 @@ import Icon from '../Icon/Icon';
 import Typography from '../Typography/Typography';
 import { IconName } from '../Icon/icon.types';
 
-const Wrapper = styled.div`
+const Wrapper = styled.a`
+  border: 1px solid;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   gap: 0.2rem;
-
   height: 105px;
-  border: 1px solid ${initialTheme.palette.notificationGreyHover};
+  border-color: ${initialTheme.palette.notificationGreyHover};
   border-radius: 16px;
   margin-bottom: 24px;
-
-  flex-grow: 1;
+  &:hover {
+    border-color: ${initialTheme.palette.blueDark};
+  }
 `;
 
 export type TileData = { name: string; iconName: IconName };
@@ -24,8 +25,8 @@ export type TileData = { name: string; iconName: IconName };
 type TileProps = { data: TileData };
 
 const Tile = ({ data: { name, iconName } }: TileProps) => (
-  <Wrapper>
-    <Icon name={iconName} />
+  <Wrapper href='/'>
+    <Icon name={iconName} size={40} />
     <Typography variant='largeParagraph' color='blueDark'>
       {name}
     </Typography>
