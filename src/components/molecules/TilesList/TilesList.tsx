@@ -1,22 +1,25 @@
 import { useWindowDimensions } from '../../../hooks/useWindowDimension';
-import Tile from '../../atoms/Tile/Tile';
+import Tile, { TileData } from '../../atoms/Tile/Tile';
 import Typography from '../../atoms/Typography/Typography';
 import * as Styled from './TilesList.styled';
 import Grid from '@mui/material/Grid';
 import { TILES_ARRAY, respoSwitcher } from './TilesList.utils';
 import Icon from '../../atoms/Icon/Icon';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 const TilesList = () => {
   const screenDim = useWindowDimensions();
-  const [paginationLimiter, setPaginationLimiter] = useState(respoSwitcher(screenDim));
-
-  const paginatedArray = TILES_ARRAY.slice(0, paginationLimiter);
+  let paginationLimiter = respoSwitcher(screenDim);
+  const [paginatedArray, setPaginatedArray] = useState<TileData[]>([]);
 
   const showAllOfTheTiles = () => {
-    if (paginationLimiter !== TILES_ARRAY.length) setPaginationLimiter(TILES_ARRAY.length);
-    else setPaginationLimiter(respoSwitcher(screenDim));
+    if (paginationLimiter !== TILES_ARRAY.length) paginationLimiter = TILES_ARRAY.length;
+    else paginationLimiter = respoSwitcher(screenDim);
   };
+
+  useEffect(() => {
+    setPaginatedArray(TILES_ARRAY.slice(0, paginationLimiter));
+  }, [paginationLimiter]);
 
   return (
     <Styled.TilesContainer>
