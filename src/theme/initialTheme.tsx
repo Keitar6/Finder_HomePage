@@ -15,12 +15,13 @@ const initialTheme: Theme = {
     white: '#fff',
 
     notificationGrey: '#f4f5f6',
-    notificationGreyHover: '#e3e5e8cc',
+    notificationGreyHover: '#e3e5e8',
     inputGrey: '#a9b1b7',
     iconInputGrey: '#717d85',
 
     text: '#242A2F',
-    textGrey: '#a8b0b7',
+    headerText: '#18304b',
+    textGrey: '#6C7881',
     yellow: '#FFD541',
   },
   typography: {
@@ -42,7 +43,7 @@ const initialTheme: Theme = {
       fontFamily: 'Roboto, Arial, sans-serif',
       fontWeight: 700,
       fontSize: '1.5rem',
-      lineHeight: 1.4,
+      lineHeight: 1.2,
     },
     header3: {
       fontFamily: 'Roboto, Arial, sans-serif',
@@ -74,7 +75,7 @@ const initialTheme: Theme = {
     },
     boldParagraph: {
       fontFamily: 'Roboto, Arial, sans-serif',
-      fontWeight: 600,
+      fontWeight: 500,
       fontSize: '1rem',
       lineHeight: '1rem',
       letterSpacing: '',
@@ -84,6 +85,13 @@ const initialTheme: Theme = {
       fontWeight: 500,
       fontSize: '14px',
       lineHeight: '',
+      letterSpacing: '',
+    },
+    largeParagraph: {
+      fontFamily: 'Roboto, Arial, sans-serif',
+      fontWeight: 400,
+      fontSize: '18px',
+      lineHeight: '150%',
       letterSpacing: '',
     },
   },

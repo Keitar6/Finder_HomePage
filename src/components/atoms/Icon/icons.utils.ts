@@ -8,6 +8,8 @@ export const ICONS_NAMES: IconList = {
   remove: 'line-md:remove',
   tag: 'mdi:tag',
   arrow: 'iconamoon:arrow-right-2-bold',
+  arrowDown: 'iconamoon:arrow-right-2-bold',
+  hamburger: 'pajamas:hamburger',
   Australia: 'twemoji:flag-australia',
   'United States': 'emojione-v1:flag-for-united-states',
   Canada: 'twemoji:flag-canada',
