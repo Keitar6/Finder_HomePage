@@ -1,9 +1,9 @@
 import { renderWithProviders } from '../../../utils/test.utils';
 import { cleanup } from '@testing-library/react';
-import Footer from './Footer';
+import TilesList from './TilesList';
 
-describe('Footer', () => {
-  const item = () => renderWithProviders(<Footer />, {});
+describe('TilesList', () => {
+  const item = () => renderWithProviders(<TilesList />, {});
 
   afterEach(cleanup);
   it('renders correctly', () => {

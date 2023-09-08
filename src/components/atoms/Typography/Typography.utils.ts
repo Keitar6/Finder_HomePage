@@ -10,6 +10,7 @@ const variantToElement: TypographyVariants = {
   paragraph: 'p',
   boldParagraph: 'p',
   smallParagraph: 'p',
+  largeParagraph: 'p',
 } as const;
 
 export default variantToElement;

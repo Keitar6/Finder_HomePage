@@ -20,6 +20,7 @@ export const colorNames = [
   'iconInputGrey',
 
   'text',
+  'headerText',
   'textGrey',
   'yellow',
 ] as const;
@@ -34,6 +35,7 @@ export const typographyNames = [
   'paragraph',
   'boldParagraph',
   'smallParagraph',
+  'largeParagraph',
 ] as const;
 
 const typographyTypes = ['p', 'span', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6'] as const;

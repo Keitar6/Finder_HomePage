@@ -13,6 +13,9 @@ export const iconsNames = [
   'remove',
   'tag',
   'arrow',
+  'arrowDown',
+  'arrowUp',
+  'hamburger',
   ...CountriesIcons,
 ] as const;
 

@@ -1,48 +1,10 @@
 import { useState } from 'react';
 import Drawer from '@mui/material/Drawer';
-import { Countries, Links } from './HamburgerMenu.utils';
+import { Links } from './HamburgerMenu.utils';
 import Icon from '../../atoms/Icon/Icon';
-import styled from 'styled-components';
+import * as Styled from './HamburgerMenu.styled';
 import Typography from '../../atoms/Typography/Typography';
-
-const Wrapper = styled.div`
-  display: flex;
-  padding: 16px 24px;
-  flex-direction: column;
-  align-items: baseline;
-  justify-content: baseline;
-  max-width: 320px;
-  width: 100vw;
-`;
-const LinkItem = styled.div`
-  display: flex;
-  flex-direction: column;
-`;
-const TopLink = styled.div`
-  display: flex;
-  justify-content: baseline;
-  align-items: center;
-  gap: 0.8rem;
-  width: 100%;
-`;
-
-const TextWithIcon = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  padding: 16px 0;
-`;
-const DropdownContainer = styled(TextWithIcon)`
-  padding: 24px 0;
-`;
-
-const DropdownItem = styled.div`
-  display: flex;
-  justify-content: baseline;
-  align-items: center;
-  gap: 0.2rem;
-`;
+import CountriesDropdown from '../CountriesDropdown/CountriesDropdown';
 
 const HamburgerMenu = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -53,34 +15,35 @@ const HamburgerMenu = () => {
 
   return (
     <>
-      <div onClick={changeStateOfTheHamburgerMenu}>Hamburger Icon</div>
+      <Styled.HamburgerContainer onClick={changeStateOfTheHamburgerMenu}>
+        <Icon name='hamburger' color='text' />
+      </Styled.HamburgerContainer>
       <Drawer anchor='left' open={isOpen} onClose={changeStateOfTheHamburgerMenu}>
-        <Wrapper>
-          <TextWithIcon>
-            <TopLink>
+        <Styled.Wrapper>
+          <Styled.TextWithIcon>
+            <Styled.TopLink>
               <Icon name='tag' />
               <Typography color='blueDark'>Log In</Typography>
-            </TopLink>
-            <Icon color='iconInputGrey' name='remove' />
-          </TextWithIcon>
+            </Styled.TopLink>
+            <div onClick={changeStateOfTheHamburgerMenu}>
+              <Icon color='iconInputGrey' name='remove' />
+            </div>
+          </Styled.TextWithIcon>
 
           {Links.map((link) => (
-            <TextWithIcon key={link}>
-              <LinkItem>{link}</LinkItem>
+            <Styled.LinkItem key={link}>
+              <div>{link}</div>
               <Icon color='iconInputGrey' name='arrow' />
-            </TextWithIcon>
+            </Styled.LinkItem>
           ))}
-          <DropdownContainer>
+          <Styled.DropdownContainer>
             <div>
-              {Countries.map((country) => (
-                <DropdownItem key={country}>
-                  <Icon color='iconInputGrey' name={country} />
-                  <LinkItem>{country}</LinkItem>
-                </DropdownItem>
-              ))}
+              <Styled.DropdownItem>
+                <CountriesDropdown />
+              </Styled.DropdownItem>
             </div>
-          </DropdownContainer>
-        </Wrapper>
+          </Styled.DropdownContainer>
+        </Styled.Wrapper>
       </Drawer>
     </>
   );
