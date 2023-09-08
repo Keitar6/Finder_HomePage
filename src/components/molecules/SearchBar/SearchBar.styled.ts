@@ -14,7 +14,7 @@ export const SearchBarContainer = styled.div`
   justify-content: space-between;
   padding: 0 8px;
   height: 36px;
-  width: 17.5rem;
+  max-width: 223px;
 `;
 
 export const SearchBarContent = styled.div`

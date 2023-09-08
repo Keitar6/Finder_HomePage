@@ -3,9 +3,11 @@ import { useContext } from 'react';
 import { ThemeContext } from '../../../theme/ThemeContext';
 import Typography from '../../atoms/Typography/Typography';
 import * as Styled from './Header.styled';
-import Icon from '../../atoms/Icon/Icon';
 import Button from '../../atoms/Button/Button';
 import SearchBar from '../../molecules/SearchBar/SearchBar';
+import NotificationDropdown from '../../molecules/NotificationDropdown/NotificationDropdown';
+import DownloadDropdown from '../../molecules/DownloadDropdown/DownloadDropdown';
+import HamburgerMenu from '../../molecules/HamburgerMenu/HamburgerMenu';
 
 const Header = () => {
   const { palette } = useContext(ThemeContext);
@@ -14,23 +16,24 @@ const Header = () => {
     <Styled.HeaderWrapper palette={palette}>
       <Styled.HeaderNavBar>
         <Styled.LogoAndHambuergerContainer>
-          <div>Hamburger Icon</div>
+          <HamburgerMenu />
           <Styled.Logo src={Finder} alt='Logo Finder' />
         </Styled.LogoAndHambuergerContainer>
+
         <Styled.SearchAndButtonsContainer>
-          <Styled.DownloadWrapper>
-            <Icon name='download' />
-            <Typography color='blueDark' variant='boldParagraph'>
-              App
-            </Typography>
-          </Styled.DownloadWrapper>
+          <DownloadDropdown />
 
           <SearchBar placeholder='Search' />
-          <div>Placeholder Icon Bell </div>
+
+          <NotificationDropdown />
 
           <Styled.ButtonsWrapper>
-            <Button variant='ghost'>Log in</Button>
-            <Button variant='primary'>Join</Button>
+            <Button variant='ghost' style={{ fontWeight: 600 }}>
+              Log in
+            </Button>
+            <Button variant='primary' style={{ fontWeight: 600 }}>
+              Join
+            </Button>
           </Styled.ButtonsWrapper>
         </Styled.SearchAndButtonsContainer>
       </Styled.HeaderNavBar>

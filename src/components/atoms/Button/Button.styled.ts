@@ -18,7 +18,6 @@ export const PrimaryButton = styled.button<StylingProps>`
   padding: 6px 14px;
   min-width: 72px;
   white-space: nowrap;
-  width: 100%;
   ${buttonTypography}
 
   &:hover {
@@ -27,23 +26,6 @@ export const PrimaryButton = styled.button<StylingProps>`
     color: ${({ styling: { hoverColor } }) => hoverColor};
   }
 `;
-
-export const TextButton = styled(PrimaryButton)<StylingProps>`
-  &:hover {
-    background-color: ${({ styling: { hoverBckgColor } }) => hoverBckgColor};
-    border: 1.75px solid ${({ styling: { hoverBorderColor } }) => hoverBorderColor};
-  }
-
-  &:focus {
-    background-color: ${({ styling: { pressedBckgColor } }) => pressedBckgColor};
-    border: 1.75px solid ${({ styling: { pressedBorderColor } }) => pressedBorderColor};
-  }
-
-  background-color: ${({ styling: { bckgColor } }) => bckgColor};
-  border: 1.75px solid ${({ styling: { borderColor } }) => borderColor};
-  color: ${({ styling: { color } }) => color};
-`;
-
 export const GhostButton = styled(PrimaryButton)<StylingProps>`
   &:hover {
     background-color: ${({ styling: { hoverBckgColor } }) => hoverBckgColor};
@@ -53,11 +35,12 @@ export const GhostButton = styled(PrimaryButton)<StylingProps>`
   border: 1.75px solid ${({ styling: { borderColor } }) => borderColor};
   color: ${({ styling: { color } }) => color};
 `;
-
-export const IconButton = styled.button<StylingProps>`
-  align-items: center;
-  background-color: transparent;
+export const HoverReverseButton = styled(PrimaryButton)<StylingProps>`
+  &:hover {
+    background-color: ${({ styling: { hoverBckgColor } }) => hoverBckgColor};
+    border: 1.75px solid ${({ styling: { hoverBorderColor } }) => hoverBorderColor};
+  }
+  background-color: ${({ styling: { bckgColor } }) => bckgColor};
+  border: 1.75px solid ${({ styling: { borderColor } }) => borderColor};
   color: ${({ styling: { color } }) => color};
-  display: flex;
-  justify-content: center;
 `;

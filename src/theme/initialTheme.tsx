@@ -14,6 +14,8 @@ const initialTheme: Theme = {
     footer: '#3F4476',
     white: '#fff',
 
+    notificationGrey: '#f4f5f6',
+    notificationGreyHover: '#e3e5e8cc',
     inputGrey: '#a9b1b7',
     iconInputGrey: '#717d85',
 
@@ -72,7 +74,7 @@ const initialTheme: Theme = {
     },
     boldParagraph: {
       fontFamily: 'Roboto, Arial, sans-serif',
-      fontWeight: 500,
+      fontWeight: 600,
       fontSize: '1rem',
       lineHeight: '1rem',
       letterSpacing: '',
